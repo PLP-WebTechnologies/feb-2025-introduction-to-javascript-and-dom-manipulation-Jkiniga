@@ -24,3 +24,71 @@ Respond to user interactions.
 - Ensure semantic correctness.
 
 Happy Coding! 💻✨
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Page</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">Welcome to My Website</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <article id="main-article">
+      <h2>About Us</h2>
+      <p id="description">We are excited to have you here!</p>
+    </article>
+    <button id="change-text">Change Text</button>
+    <button id="toggle-element">Add/Remove Element</button>
+  </section>
+
+  <footer>
+    <p>© 2025 My Website</p>
+  </footer>
+
+</body>
+</html>
+
+
+// Change text content dynamically
+const title = document.getElementById('title');
+const description = document.getElementById('description');
+const changeTextBtn = document.getElementById('change-text');
+
+changeTextBtn.addEventListener('click', () => {
+  title.textContent = 'Thanks for Visiting!';
+  description.textContent = 'Stay tuned for more updates!';
+  // Modify CSS styles
+  title.style.color = 'tomato';
+  description.style.fontSize = '1.5rem';
+});
+
+// Add or remove an element
+const toggleElementBtn = document.getElementById('toggle-element');
+let newElement;
+
+toggleElementBtn.addEventListener('click', () => {
+  if (!newElement) {
+    newElement = document.createElement('p');
+    newElement.textContent = 'You clicked the button!';
+    newElement.style.color = 'green';
+    document.getElementById('main-article').appendChild(newElement);
+  } else {
+    newElement.remove();
+    newElement = null;
+  }
+});
